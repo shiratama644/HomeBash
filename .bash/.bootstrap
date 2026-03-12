@@ -1,0 +1,11 @@
+#!/bin/bash
+# HomeBash ブートストラップ
+# 各モジュールを順番に読み込む
+
+_BASH_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+for _module in env prompt aliases functions; do
+    [[ -f "$_BASH_DIR/$_module.sh" ]] && source "$_BASH_DIR/$_module.sh"
+done
+
+unset _BASH_DIR _module
