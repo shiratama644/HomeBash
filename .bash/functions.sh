@@ -5,6 +5,11 @@ mkcd() {
     mkdir -p "$1" && [[ -d "$1" ]] && cd "$1" || return 1
 }
 
+# ~/projects へ移動 (projects ディレクトリがなければ作成)
+cdp() {
+    cd ~ && mkdir -p projects && cd projects
+}
+
 # コマンドの存在確認
 has() {
     command -v "$1" &>/dev/null
